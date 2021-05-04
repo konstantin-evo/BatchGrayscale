@@ -35,7 +35,8 @@ public class GrayScaleConverter {
 
 	public static void main(String[] strings) {
 		GrayScaleConverter o = new GrayScaleConverter();
-		o.testGray();
+		//o.testGray();
+		o.selectAndConvert();
 	}
 
 }
