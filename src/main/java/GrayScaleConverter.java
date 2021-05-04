@@ -2,26 +2,21 @@ import edu.duke.*;
 import java.io.*;
 
 public class GrayScaleConverter {
-	//I started with the image I wanted (inImage)
+
 	public ImageResource makeGray(ImageResource image) {
-		//I made a blank image of the same size
-		ImageResource outImage = new ImageResource();
-		//for each pixel in outImage
 
-			//look at the corresponding pixel in inImage
+		ImageResource outImage = new ImageResource(image.getWidth(), image.getHeight()); //I made a blank image of the same size
 
-			//compute inPixel's red + inPixel's blue + inPixel's green
-			//divide that sum by 3 (call it average)
+		for (Pixel resultPixel: outImage.pixels()) {
+			Pixel resourcePixel = image.getPixel(resultPixel.getX(), resultPixel.getY());//look at the corresponding pixel in inImage
+			int average = (resourcePixel.getRed()+ resourcePixel.getBlue()+ resourcePixel.getGreen())/3;
 
-			//set pixel's red to average
+			resultPixel.setBlue(average); //set pixel's blue to average
+			resultPixel.setRed(average); //set pixel's red to average
+			resultPixel.setGreen(average); //set pixel's green to average
+		}
 
-			//set pixel's green to average
-
-			//set pixel's blue to average
-
-
-		//outImage is your answer
-		return outImage;
+		return outImage; //outImage is your answer
 	}
 
 	public void testGray() {
@@ -29,4 +24,10 @@ public class GrayScaleConverter {
 		ImageResource gray = makeGray(ir);
 		gray.draw();
 	}
+
+	public static void main(String[] strings) {
+		GrayScaleConverter o = new GrayScaleConverter();
+		o.testGray();
+	}
+
 }
