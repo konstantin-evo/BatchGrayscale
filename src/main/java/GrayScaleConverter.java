@@ -15,7 +15,6 @@ public class GrayScaleConverter {
 			resultPixel.setRed(average); //set pixel's red to average
 			resultPixel.setGreen(average); //set pixel's green to average
 		}
-
 		return outImage; //outImage is your answer
 	}
 
@@ -23,6 +22,15 @@ public class GrayScaleConverter {
 		ImageResource ir = new ImageResource();
 		ImageResource gray = makeGray(ir);
 		gray.draw();
+	}
+
+	public void selectAndConvert(){
+		DirectoryResource dr = new DirectoryResource();
+		for (File f: dr.selectedFiles()) {
+			ImageResource image= new ImageResource(f);
+			ImageResource grayImage = makeGray(image);
+			grayImage.draw();
+		}
 	}
 
 	public static void main(String[] strings) {
