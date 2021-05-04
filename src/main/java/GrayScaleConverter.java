@@ -3,9 +3,9 @@ import java.io.*;
 
 public class GrayScaleConverter {
 	//I started with the image I wanted (inImage)
-	public ImageResource makeGray(ImageResource inImage) {
+	public ImageResource makeGray(ImageResource image) {
 		//I made a blank image of the same size
-
+		ImageResource outImage = new ImageResource();
 		//for each pixel in outImage
 
 			//look at the corresponding pixel in inImage
@@ -21,6 +21,7 @@ public class GrayScaleConverter {
 
 
 		//outImage is your answer
+		return outImage;
 	}
 
 	public void testGray() {
