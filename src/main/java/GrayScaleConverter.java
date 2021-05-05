@@ -35,5 +35,4 @@ public class GrayScaleConverter {
 		GrayScaleConverter o = new GrayScaleConverter();
 		o.selectAndConvert();
 	}
-
 }
