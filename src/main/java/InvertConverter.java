@@ -23,10 +23,6 @@ public class InvertConverter {
 		return outImage; //outImage is your answer
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 	public void selectAndConvert(){
 		DirectoryResource dr = new DirectoryResource();
 		for (File f: dr.selectedFiles()) {
