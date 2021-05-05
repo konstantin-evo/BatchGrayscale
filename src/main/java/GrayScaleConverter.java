@@ -18,24 +18,21 @@ public class GrayScaleConverter {
 		return outImage; //outImage is your answer
 	}
 
-	public void testGray() {
-		ImageResource ir = new ImageResource();
-		ImageResource gray = makeGray(ir);
-		gray.draw();
-	}
 
 	public void selectAndConvert(){
 		DirectoryResource dr = new DirectoryResource();
 		for (File f: dr.selectedFiles()) {
 			ImageResource image= new ImageResource(f);
 			ImageResource grayImage = makeGray(image);
-			grayImage.draw();
+			String fName = image.getFileName();
+			String newName = "gray-copy-of-" + fName;
+			grayImage.setFileName(newName);
+			grayImage.save();
 		}
 	}
 
 	public static void main(String[] strings) {
 		GrayScaleConverter o = new GrayScaleConverter();
-		//o.testGray();
 		o.selectAndConvert();
 	}
 
